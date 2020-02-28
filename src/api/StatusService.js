@@ -1,6 +1,14 @@
-import { GET } from "./ApiHelperService";
+import { POST_BY_APP } from "./ApiHelperService";
 
 export default {
-  getSftpStatus: appId => GET("status/getSftpStatus"),
-  getAdaptorStatus: appId => GET("status/getAdaptorStatus")
+  getSftpStatus: app => {
+    const setting = require(`../configs/App_${app.appId}.json`);
+    return POST_BY_APP(app, "status/getSftpStatus", setting.Sftp);
+  },
+  getAdaptorStatus: app => {
+    const setting = require(`../configs/App_${app.appId}.json`);
+    return POST_BY_APP(app, "status/getAdaptorStatus", {
+      list: setting.AdaptorList
+    });
+  }
 };

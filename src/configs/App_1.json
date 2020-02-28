@@ -1,0 +1,20 @@
+{
+  "LoggerSetting": {
+    "FilePath": "D:\\Work\\krtk\\2020-02\\LRMS\\LRMS\\AppData",
+    "FileExtn": "log"
+  },
+  "Sftp": {
+    "FilePath": "D:\\Work\\krtk\\2020-02\\LRMS\\LRMS\\AppData\\2019-09-04.log",
+    "KeyWord": "SUCCESS"
+  },
+  "AdaptorList": [
+    {
+      "ProcessName": "notepad",
+      "ProcessPath": ""
+    },
+    {
+      "ProcessName": "SourceTree",
+      "ProcessPath": ""
+    }
+  ]
+}

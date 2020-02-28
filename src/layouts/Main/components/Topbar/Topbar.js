@@ -17,6 +17,10 @@ const useStyles = makeStyles(theme => ({
   },
   signOutButton: {
     marginLeft: theme.spacing(1)
+  },
+  headerStyle: {
+    fontSize: 26,
+    color: "white"
   }
 }));
 
@@ -30,8 +34,8 @@ const Topbar = props => {
   return (
     <AppBar {...rest} className={clsx(classes.root, className)}>
       <Toolbar>
-        <RouterLink to="/">
-          <img alt="Logo" src="/images/logos/logo--white.svg" />
+        <RouterLink className={classes.headerStyle} to="/">
+          Caller App
         </RouterLink>
         <div className={classes.flexGrow} />
         <Hidden mdDown>

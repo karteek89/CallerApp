@@ -1,7 +1,7 @@
 import { Messages } from "utils";
 import axios from "axios";
 
-const _baseUrl = "https://localhost:44340/api";
+const _baseUrl = "https://localhost:44364/api";
 
 axios.interceptors.response.use(
   response => {
@@ -42,4 +42,12 @@ export const GET = url => {
 
 export const POST = (url, data) => {
   return axios.post(`${_baseUrl}/${url}`, data);
+};
+
+export const GET_BY_APP = (app, url) => {
+  return axios.get(`${app.apiUrl}/${url}`);
+};
+
+export const POST_BY_APP = (app, url, data) => {
+  return axios.post(`${app.apiUrl}/${url}`, data);
 };

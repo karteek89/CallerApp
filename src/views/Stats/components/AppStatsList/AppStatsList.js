@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -8,6 +8,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import AppStatsListItem from "../AppStatsListItem";
+import AppListData from "configs/AppListData";
 
 const useStyles = makeStyles({
   table: {
@@ -17,7 +18,6 @@ const useStyles = makeStyles({
 
 const AppStatsList = () => {
   const classes = useStyles();
-  const [apps] = useState([{ name: "App 1" }]);
 
   return (
     <TableContainer component={Paper}>
@@ -35,7 +35,7 @@ const AppStatsList = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {apps.map((row, key) => (
+          {AppListData.map((row, key) => (
             <AppStatsListItem key={key} app={row} />
           ))}
         </TableBody>

@@ -14,26 +14,34 @@ const AppStatsListItem = ({ app }) => {
   useEffect(() => {
     const loadAdaptorStatus = async () => {
       setAdaptorLoading(true);
-      var res = await StatusService.getAdaptorStatus(1);
-      setAdaptorLoading(false);
-      setAdaptorStatusList(res);
+      try {
+        var res = await StatusService.getAdaptorStatus(app);
+        setAdaptorLoading(false);
+        setAdaptorStatusList(res);
+      } catch (error) {
+        setAdaptorLoading(false);
+      }
     };
 
     const loadSFTPStatus = async () => {
       setSftpLoading(true);
-      var res = await StatusService.getSftpStatus(1);
-      setSftpLoading(false);
-      setSftpSuccess(res);
+      try {
+        var res = await StatusService.getSftpStatus(app);
+        setSftpSuccess(res);
+        setSftpLoading(false);
+      } catch (error) {
+        setSftpLoading(false);
+      }
     };
 
     loadAdaptorStatus();
     loadSFTPStatus();
-  }, []);
+  }, [app]);
 
   return (
-    <TableRow key={app.name}>
+    <TableRow key={app.appId}>
       <TableCell component="th" scope="row">
-        {app.name}
+        {app.appName}
       </TableCell>
       <TableCell align="right">-</TableCell>
       <TableCell align="right">-</TableCell>
